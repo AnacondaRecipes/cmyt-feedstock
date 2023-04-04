@@ -44,7 +44,16 @@ test:
 about:
   home: https://github.com/yt-project/yt
   summary: A collection of Matplotlib colormaps from the yt project
+  description: |
+    Matplotlib colormaps from the yt project!
+
+    The following colormaps, as well as their respective reversed (*_r) versions are available:
+      - Perceptually uniform sequential colormaps
+      - Monochromatic sequential colormaps
+      - Miscellaneous
+
   dev_url: https://github.com/yt-project/cmyt/
+  doc_url: https://github.com/yt-project/cmyt/
   license: BSD-3-Clause
   license_family: BSD
   license_file: LICENSE
