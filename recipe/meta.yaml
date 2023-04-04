@@ -29,13 +29,17 @@ requirements:
     - python
 
 test:
+  source_files:
+    - tests/
   imports:
     - cmyt
     - cmyt.colormaps
   commands:
     - pip check
+    - pytest tests -v
   requires:
     - pip
+    - pytest
 
 about:
   home: https://github.com/yt-project/yt
