@@ -1,6 +1,5 @@
 {% set name = "cmyt" %}
-{% set version = "1.1.3" %}
-
+{% set version = "2.0.2" %}
 
 package:
   name: {{ name|lower }}
@@ -8,41 +7,35 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/cmyt-{{ version }}.tar.gz
-  sha256: be0262cb399e9492a13ad7ef4aeb45221665341a9c24438aa9955a39856f4f27
+  sha256: cf308415401c615dffded3033be575373553573740298e44ef4b016ffd99a9be
 
 build:
   number: 0
-  skip: true  # [py<38]
+  skip: true  # [py<310]
   script: {{ PYTHON }} -m pip install . --no-deps --no-build-isolation -vv
 
 requirements:
   host:
     - pip
     - python
-    - setuptools
+    - hatchling
     - wheel
   run:
-    - colorspacious >=1.1.2
-    - matplotlib-base >=3.2.0
-    - more-itertools >=8.4
-    - numpy >=1.17.4
     - python
+    - matplotlib-base >=3.8.0
+    - numpy >=1.26.0,<3
 
 test:
-  source_files:
-    - tests/
   imports:
     - cmyt
     - cmyt.colormaps
   commands:
     - pip check
-    - pytest tests -v
   requires:
     - pip
-    - pytest
 
 about:
-  home: https://github.com/yt-project/yt
+  home: https://yt-project.org/
   summary: A collection of Matplotlib colormaps from the yt project
   description: |
     Matplotlib colormaps from the yt project!
