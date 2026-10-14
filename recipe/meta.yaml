@@ -1,5 +1,5 @@
 {% set name = "cmyt" %}
-{% set version = "2.0.2" %}
+{% set version = "2.0.4" %}
 
 package:
   name: {{ name|lower }}
@@ -7,18 +7,18 @@ package:
 
 source:
   url: https://github.com/yt-project/{{ name }}/archive/refs/tags/v{{ version }}.tar.gz
-  sha256: 56be04bd80c688cea4d7a3f2481e4e3d4a4183b055e1674137ce1b0ba8105f20
+  sha256: 818839d295d1fda394035c676fd3738b247f6764f7dc2e158cced7c10c4a52de
 
 build:
   number: 0
-  skip: true  # [py<310]
+  skip: true  # [py<311]
   script: {{ PYTHON }} -m pip install . --no-deps --no-build-isolation -vv
 
 requirements:
   host:
     - pip
     - python
-    - hatchling
+    - flit-core >=3.11,<5
   run:
     - python
     - matplotlib-base >=3.8.0
@@ -45,9 +45,9 @@ about:
     Matplotlib colormaps from the yt project!
 
     The following colormaps, as well as their respective reversed (*_r) versions are available:
-      - Perceptually uniform sequential colormaps
-      - Monochromatic sequential colormaps
-      - Miscellaneous
+    - Perceptually uniform sequential colormaps
+    - Monochromatic sequential colormaps
+    - Miscellaneous
 
   dev_url: https://github.com/yt-project/cmyt/
   doc_url: https://github.com/yt-project/cmyt/
